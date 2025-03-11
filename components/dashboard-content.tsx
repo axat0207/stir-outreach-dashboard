@@ -124,8 +124,12 @@ export function DashboardContent() {
     const fetchFilterOptions = async () => {
       try {
         const [pocsResponse, tiersResponse] = await Promise.all([
-          axios.get("http://localhost:3007/api/dashboard/pocs"),
-          axios.get("http://localhost:3007/api/dashboard/tiers"),
+          axios.get(
+            "https://stir-email-outreach.onrender.com/api/dashboard/pocs"
+          ),
+          axios.get(
+            "https://stir-email-outreach.onrender.com/api/dashboard/tiers"
+          ),
         ]);
 
         setPocOptions(pocsResponse.data);
@@ -226,7 +230,7 @@ export function DashboardContent() {
       }
 
       const response = await axios.get(
-        `http://localhost:3007/api/dashboard?${params.toString()}`
+        `https://stir-email-outreach.onrender.com/api/dashboard?${params.toString()}`
       );
 
       // Update state with API response
